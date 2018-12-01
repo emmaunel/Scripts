@@ -3,8 +3,8 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-email_sender = 'aa027n@bhsec.bard.edu'
-password = 'sahuarit24'
+email_sender = 'YOUR EMAIL'
+password = 'YOURPASSWORD'
 subject = 'My URLS: URL SHORTENER'
 BASE_URL = "http://vurl.com/api.php?"
 
