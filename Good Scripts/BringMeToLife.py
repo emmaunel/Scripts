@@ -1,6 +1,5 @@
 """
-My friends didn't think it was cool. Now I feel sad :((delta = datetime.datetime(2018, 12, 31, 23, 59) - datetime.datetime.now().replace(microsecond=0)
-
+My friends didn't think it was cool. Now I feel sad :((
 """
 
 import os
