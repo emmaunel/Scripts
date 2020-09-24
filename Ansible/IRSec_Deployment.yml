@@ -1,0 +1,9 @@
+---
+- hosts: dmz 
+  gather_facts: false 
+  roles:
+    - discord
+         
+
+
+
