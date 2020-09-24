@@ -1,0 +1,4 @@
+---
+# tasks file for tourkit
+- name: Include tourkit.yml
+  include_tasks: tourkit.yml

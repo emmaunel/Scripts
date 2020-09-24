@@ -1,0 +1,8 @@
+#!/bin/sh
+
+i=0
+while [ $i -eq 0 ]; do
+
+    echo "How do you Catch the Ether Bunny?"
+    echo "Ethernet"
+done

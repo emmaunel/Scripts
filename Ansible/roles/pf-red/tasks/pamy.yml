@@ -1,0 +1,15 @@
+---
+
+- name: save old pam config
+  copy:
+      src: /etc/pam.d/sshd
+      dest: /etc/pam.d/sshd.bk
+      remote_src: yes
+      backup: yes
+      
+- name: copy our pam
+  copy:
+      src: pam_sshd
+      dest: /etc/pam.d/sshd
+
+

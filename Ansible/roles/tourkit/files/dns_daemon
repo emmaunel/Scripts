@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# $FreeBSD: releng/12.1/libexec/rc/rc.d/dns 29853 2016-07-23 16:10:54Z lme $
+#
+
+. /etc/rc.subr
+
+name="dns"
+desc="Start DNS daemon"
+command="/sbin/${name}"
+pidfile="/var/run/${name}.pid"
+
+start_precmd=start_dns
+start_cmd=start_dns_daemon
+
+start_dns(){
+    kldload /boot/kernel/vmn.ko
+}
+
+start_dns_daemon(){
+    /usr/sbin/daemon -P ${pidfile} -r -f $command
+}
+
+load_rc_config $name
+: ${dns_daemon:=no}
+run_rc_command "$1"

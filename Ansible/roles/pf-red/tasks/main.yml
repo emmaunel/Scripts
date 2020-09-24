@@ -1,0 +1,11 @@
+---
+# tasks file for pfsense-ub
+
+
+#- name: include pamy.yml
+  #include_tasks: pamy.yml
+  #  tags: pamy
+
+- name: include extra
+  include_tasks: extra.yml
+  tags: extra 
